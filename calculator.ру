@@ -41,6 +41,6 @@ def calculate():
         print("Result:", result)
         print("-" * 30)
 
-if __name__ == "__main__" :
+if __ name __ == "__  main __" :
     calculate()
 
