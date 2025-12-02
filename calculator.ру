@@ -1,23 +1,46 @@
-print("Simple Python Calculator")
-print("1. Add")
-print("2. Subtract")
-print("3. Multiply")
-print("4. Divide")
+#!/usr/bin/env python3
+# Simple Python Calculator
+# Created as a beginner project for GitHub portfolio.
 
-choice = input("Enter choice (1/2/3/4): ")
-num1 = float(input("Enter first number: "))
-num2 = float(input("Enter second number: "))
+def calculate():
+    print("Simple Python Calculator")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("0. Exit")
 
-if choice == '1':
-    print("Result:", num1 + num2)
-elif choice == '2':
-    print("Result:", num1 - num2)
-elif choice == '3':
-    print("Result:", num1 * num2)
-elif choice == '4':
-    if num2 != 0:
-        print("Result:", num1 / num2)
-    else:
-        print("Error: Division by zero")
-else:
-    print("Invalid choice")
+    while True:
+        choice = input("Enter choice (0/1/2/3/4): ").strip()
+        if choice == '0':
+            print("Goodbye!")
+            break
+        if choice not in {'1','2','3','4'}:
+            print("Invalid choice. Please enter 0,1,2,3 or 4.")
+            continue
+
+        try:
+            num1 = float(input("Enter first number: ").strip())
+            num2 = float(input("Enter second number: ").strip())
+        except ValueError:
+            print("Invalid number. Please enter numeric values.")
+            continue
+
+        if choice == '1':
+            result = num1 + num2
+        elif choice == '2':
+            result = num1 - num2
+        elif choice == '3':
+            result = num1 * num2
+        elif choice == '4':
+            if num2 == 0:
+                print("Error: Division by zero")
+                continue
+            result = num1 / num2
+
+        print("Result:", result)
+        print("-" * 30)
+
+if name == "__main__":
+    calculate()
+
